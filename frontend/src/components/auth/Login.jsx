@@ -14,6 +14,7 @@ const Login = () => {
     password: "",
   });
 
+
   useEffect(() => {
     if (auth._id) {
       navigate("/cart");
@@ -23,7 +24,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(user);
+    console.log('ss :',user);
+    localStorage.setItem ('_id', auth._id);
     dispatch(loginUser(user));
   };
 

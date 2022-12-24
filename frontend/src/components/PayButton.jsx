@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 const PayButton = ({ cartItems }) => {
   const user = useSelector((state) => state.auth);
   let navigate = useNavigate();
+
+  console.log('first33 :', cartItems)
   
 
   const handleCheckout = () => {

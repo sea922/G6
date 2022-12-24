@@ -7,6 +7,8 @@ const orders = require("./routes/orders");
 const stripe = require("./routes/stripe");
 const productsRoute = require("./routes/products");
 const userRoute = require("./routes/user");
+const swaggerUi = require("swagger-ui-express")
+const swaggerDocument = require("./api.json");
 
 
 // const products = require("./products");
@@ -16,7 +18,7 @@ const app = express();
 require("dotenv").config();
 
 app.use(express.json());
-app.use(cors());
+
 
 app.use("/api/register", register);
 app.use("/api/login", login);
@@ -24,6 +26,10 @@ app.use("/api/orders", orders);
 app.use("/api/stripe", stripe);
 app.use("/api/products", productsRoute);
 app.use("/api/users", userRoute);
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res) => {
   res.send("Welcome our to online shop API...");

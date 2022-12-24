@@ -19,6 +19,9 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+ 
+
+
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
